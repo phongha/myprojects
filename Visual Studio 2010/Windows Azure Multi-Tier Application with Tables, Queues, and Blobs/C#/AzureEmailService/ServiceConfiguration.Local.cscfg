@@ -3,22 +3,22 @@
   <Role name="MvcWebRole">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=phmvc4;AccountKey=0ISCW3xitVD/HDBtH/o0J0xgFzwuG68YSgdHdAUOqluLzaz/cZB7R9KzUmR8d5oJtp9MzsuFlLNRzY5TOQYAGw==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=phmvc4;AccountKey=0ISCW3xitVD/HDBtH/o0J0xgFzwuG68YSgdHdAUOqluLzaz/cZB7R9KzUmR8d5oJtp9MzsuFlLNRzY5TOQYAGw==" />
     </ConfigurationSettings>
   </Role>
   <Role name="WorkerRoleA">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=phmvc4;AccountKey=0ISCW3xitVD/HDBtH/o0J0xgFzwuG68YSgdHdAUOqluLzaz/cZB7R9KzUmR8d5oJtp9MzsuFlLNRzY5TOQYAGw==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=phmvc4;AccountKey=0ISCW3xitVD/HDBtH/o0J0xgFzwuG68YSgdHdAUOqluLzaz/cZB7R9KzUmR8d5oJtp9MzsuFlLNRzY5TOQYAGw==" />
     </ConfigurationSettings>
   </Role>
   <Role name="WorkerRoleB">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=phmvc4;AccountKey=0ISCW3xitVD/HDBtH/o0J0xgFzwuG68YSgdHdAUOqluLzaz/cZB7R9KzUmR8d5oJtp9MzsuFlLNRzY5TOQYAGw==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=phmvc4;AccountKey=0ISCW3xitVD/HDBtH/o0J0xgFzwuG68YSgdHdAUOqluLzaz/cZB7R9KzUmR8d5oJtp9MzsuFlLNRzY5TOQYAGw==" />
       <Setting name="SendGridUserName" value="SendGrid User Name" />
       <Setting name="SendGridPassword" value="SendGrid Password" />
       <Setting name="AzureMailServiceURL" value="Azure Mail Service URL" />

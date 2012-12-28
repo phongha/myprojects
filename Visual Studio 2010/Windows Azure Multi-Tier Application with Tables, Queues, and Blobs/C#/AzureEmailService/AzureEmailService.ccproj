@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AzureEmailService</RootNamespace>
     <AssemblyName>AzureEmailService</AssemblyName>
-    <StartDevelopmentStorage>True</StartDevelopmentStorage>
+    <StartDevelopmentStorage>False</StartDevelopmentStorage>
     <Name>AzureEmailService</Name>
     <SccProjectName>
     </SccProjectName>
