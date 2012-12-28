@@ -1,0 +1,77 @@
+﻿@model MvcWebRole.Models.Message
+
+@{
+    ViewBag.Title = "Edit Message";
+}
+
+<h2>Edit Message</h2>
+
+@using (Html.BeginForm("Edit", "Message", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+     @Html.AntiForgeryToken()
+     @Html.ValidationSummary(true)
+
+     @Html.HiddenFor(model => model.ETag)
+     
+    <fieldset>
+        <legend>Message</legend>
+
+        @Html.HiddenFor(model => model.MessageRef)
+        @Html.HiddenFor(model => model.PartitionKey)
+        @Html.HiddenFor(model => model.RowKey)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ListName)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ListName", String.Empty)
+            @Html.ValidationMessageFor(model => model.ListName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubjectLine)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubjectLine)
+            @Html.ValidationMessageFor(model => model.SubjectLine)
+        </div>
+
+        <div class="editor-label">
+            HTML Path: Leave blank to keep current HTML File.
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" />
+        </div>
+
+
+        <div class="editor-label">
+            Text Path: Leave blank to keep current Text File.
+        </div>
+        <div class="editor-field">
+            <input type="file" name="TxtFile" />
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ScheduledDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ScheduledDate)
+            @Html.ValidationMessageFor(model => model.ScheduledDate)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Status)
+        </div>
+       <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

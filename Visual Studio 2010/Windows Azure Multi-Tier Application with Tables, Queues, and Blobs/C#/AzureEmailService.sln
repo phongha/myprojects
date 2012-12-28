@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureEmailService", "AzureEmailService\AzureEmailService.ccproj", "{641CDD26-D13A-4C0A-9570-DEB7E20D15D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcWebRole", "MvcWebRole\MvcWebRole.csproj", "{8441A87F-68A2-48EB-AC7D-C0C33D8ADBE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRoleA", "WorkerRoleA\WorkerRoleA.csproj", "{77F63E0B-526D-48A5-9BC0-8A686C6759C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRoleB", "WorkerRoleB\WorkerRoleB.csproj", "{5B8E3B61-1E60-4C4A-A92E-136DA61C0F95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{513764B9-F4B4-4BA0-8F13-12A068D28444}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{641CDD26-D13A-4C0A-9570-DEB7E20D15D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{641CDD26-D13A-4C0A-9570-DEB7E20D15D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{641CDD26-D13A-4C0A-9570-DEB7E20D15D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{641CDD26-D13A-4C0A-9570-DEB7E20D15D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8441A87F-68A2-48EB-AC7D-C0C33D8ADBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8441A87F-68A2-48EB-AC7D-C0C33D8ADBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8441A87F-68A2-48EB-AC7D-C0C33D8ADBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8441A87F-68A2-48EB-AC7D-C0C33D8ADBE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F63E0B-526D-48A5-9BC0-8A686C6759C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F63E0B-526D-48A5-9BC0-8A686C6759C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F63E0B-526D-48A5-9BC0-8A686C6759C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F63E0B-526D-48A5-9BC0-8A686C6759C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B8E3B61-1E60-4C4A-A92E-136DA61C0F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B8E3B61-1E60-4C4A-A92E-136DA61C0F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B8E3B61-1E60-4C4A-A92E-136DA61C0F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B8E3B61-1E60-4C4A-A92E-136DA61C0F95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

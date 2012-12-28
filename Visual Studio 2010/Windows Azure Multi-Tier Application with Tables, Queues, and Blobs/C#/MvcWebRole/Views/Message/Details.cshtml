@@ -1,0 +1,42 @@
+﻿@model MvcWebRole.Models.Message
+
+@{
+    ViewBag.Title = "Message Details";
+}
+
+<h2>Message Details</h2>
+
+<fieldset>
+    <legend>Message</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ListName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ListName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ScheduledDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ScheduledDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SubjectLine)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubjectLine)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

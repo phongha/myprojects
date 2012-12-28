@@ -1,0 +1,50 @@
+﻿@model MvcWebRole.Models.Message
+
+@{
+    ViewBag.Title = "Delete Message";
+}
+
+<h2>Delete Message</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Message</legend>
+
+    @Html.HiddenFor(model => model.PartitionKey)
+    @Html.HiddenFor(model => model.RowKey)
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ListName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ListName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ScheduledDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ScheduledDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SubjectLine)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubjectLine)
+    </div>
+   
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+     @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,65 @@
+﻿@model MvcWebRole.Models.Message
+
+@{
+    ViewBag.Title = "Create Message";
+}
+
+<h2>Create Message</h2>
+
+@using (Html.BeginForm("Create", "Message",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Message</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ListName)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ListName", String.Empty)
+            @Html.ValidationMessageFor(model => model.ListName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubjectLine)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubjectLine)
+            @Html.ValidationMessageFor(model => model.SubjectLine)
+        </div>
+
+             <div class="editor-label">
+            HTML Path:
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" />
+        </div>
+
+
+        <div class="editor-label">
+            Text Path: 
+        </div>
+        <div class="editor-field">
+            <input type="file" name="TxtFile" />
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ScheduledDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ScheduledDate)
+            @Html.ValidationMessageFor(model => model.ScheduledDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

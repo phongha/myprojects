@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Windows Azure Multi-Tier Application with Tables, Queues, and Blobs</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Windows Azure Multi-Tier Application with Tables, Queues, and Blobs</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Azure, Windows Azure Storage, Windows Azure Tables, Windows Azure Storage Queues, Windows Azure Storage Blobs
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ASP.NET, Send Email, Windows Azure, Data Access, ASP.NET MVC, Web Services, Deployment, Windows Azure Storage, SendGrid
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">12/20/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>A Visual Studio project that shows how to use Windows Azure Storage tables, queues, and blobs in a multi-tier application that has an ASP.NET MVC 4 web role on the front-end and worker roles on the back-end.</p>
+<h1><span>Building the Sample</span></h1>
+<p>To run the project, download it and follow the directions at <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/">
+Configuring and Deploying the Windows Azure Email Service application</a>.</p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p>The sample and the accompanying tutorial demonstrate how to use features of Windows Azure and tools you can use with Windows Azure:</p>
+<ul>
+<li>How to&nbsp;work with&nbsp;a Visual Studio cloud project&nbsp;that has&nbsp;an MVC 4 web role and two worker roles. The tutorial also&nbsp;explains how to run the web front-end in a Windows Azure Web Site instead of including it in the Cloud Service.
+</li><li>How to publish&nbsp;a cloud project to a Windows Azure Cloud Service. </li><li>How to use the Windows Azure Queue storage service for communication between tiers or between worker roles.
+</li><li>How to use the Windows Azure Table storage service as a highly scalable data store for structured non-relational data.
+</li><li>How to use the Windows Azure Blob service to store files in the cloud. </li><li>How to work with Windows Azure tables, blobs, and queues in MVC 4 controllers and views.
+</li><li>How to view and edit Windows Azure tables, queues, and blobs by using Visual Studio or Azure Storage Explorer.
+</li><li>How to use SendGrid to send emails. </li><li>How to configure tracing and view trace data. </li><li>How to handle planned shut-downs by overriding the OnStop method. </li><li>How to scale an application by increasing the number of worker role instances.&nbsp;
+</li></ul>
+<p>The sample is a mailing list application. The front-end includes web pages that administrators of the service use to manage email lists.</p>
+<p><img id="68589" src="description/mtas-mailing-list-index-page.png" alt="" width="599" height="580"></p>
+<p>&nbsp;<img id="68590" src="description/mtas-subscribers-index-page.png" alt="" width="568" height="532"></p>
+<p><img id="68591" src="description/mtas-message-index-page.png" alt="" width="597" height="560"></p>
+<p>The front-end also enables users to subscribe to lists and unsubscribe from lists by using web pages and a Web API service method.&nbsp; The back-end&nbsp;has two worker roles, one to schedule emails and one to send them.</p>
+<p><img id="72768" src="description/mtas-worker-roles-a-and-b.png" alt="" width="590" height="543">&nbsp;</p>
+<p>The application uses Windows Azure Storage tables to store email lists, subscribers, and messages to be sent to email lists.&nbsp; It uses queues to coordinate work between the two worker roles and between the web role and the worker role that sends emails.&nbsp;
+ It enables administrators to upload the body of a message in HTML and plain text files, and it stores these files in blob storage.&nbsp;</p>
+<h1>More Information</h1>
+<p>For more information, see the tutorial that accompanies the sample: <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/">
+.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs</a>.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

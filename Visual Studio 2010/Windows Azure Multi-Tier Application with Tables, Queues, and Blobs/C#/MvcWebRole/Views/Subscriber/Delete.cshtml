@@ -1,0 +1,40 @@
+﻿@model MvcWebRole.Models.Subscriber
+
+@{
+    ViewBag.Title = "Delete Subscriber";
+}
+
+<h2>Delete Subscriber</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Subscriber</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ListName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ListName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmailAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmailAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Verified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Verified)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+     @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

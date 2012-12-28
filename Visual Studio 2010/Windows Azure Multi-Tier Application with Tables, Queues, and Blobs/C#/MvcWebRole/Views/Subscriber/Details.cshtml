@@ -1,0 +1,37 @@
+﻿@model MvcWebRole.Models.Subscriber
+
+@{
+    ViewBag.Title = "Subscriber Details";
+}
+
+<h2>Subscriber Details</h2>
+
+<fieldset>
+    <legend>Subscriber</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ListName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ListName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmailAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmailAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Verified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Verified)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { PartitionKey=Model.PartitionKey, RowKey=Model.RowKey})
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,49 @@
+﻿@model MvcWebRole.Models.Subscriber
+
+@{
+    ViewBag.Title = "Create Subscriber";
+}
+
+<h2>Create Subscriber</h2>
+
+@using (Html.BeginForm()) {
+     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Subscriber</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ListName)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ListName", String.Empty)
+            @Html.ValidationMessageFor(model => model.ListName)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Verified)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Verified)
+            @Html.ValidationMessageFor(model => model.Verified)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
