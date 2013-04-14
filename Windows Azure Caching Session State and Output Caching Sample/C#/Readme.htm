@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta http-equiv="Content-Language" content="en-us" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Windows Azure Caching</title>
+    <style type="text/css">
+        h1, h2
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p
+        {
+            font-family: Calibri, sans-serif;
+            font-size: 12pt;
+        }
+        li
+        {
+            font-family: Calibri, sans-serif;
+            font-size: 12pt;
+            margin-bottom: 6pt;
+        }
+    </style>
+</head>
+<body style="margin: 20px auto 0px auto; width: 700px">
+    <h1>
+        <b><span>Windows Azure Caching:</br></span>Session State and Output Caching
+            Sample</b></h1>
+    <p>
+        This sample has two purposes:</p>
+    <ul>
+        <li>Demonstrate how to host Caching on an existing web role (co-located topology).
+        </li>
+        <li>Demonstrate how to use Caching for both ASP.NET Session State and Output Caching.
+        </li>
+    </ul>
+    <p>
+        This sample uses Caching co-located on a web role, <b>CacheColocatedASPXWebRole</b>.
+        A percentage of memory on each instance of this web role form a cache cluster, providing
+        Caching capabilities to the web role. In this sample, the cache is used for ASP.NET
+        Session State and Output caching.</p>
+    <p>
+        For more information about Caching, see <a href="http://go.microsoft.com/fwlink/?LinkID=254172"
+            target="_blank">http://go.microsoft.com/fwlink/?LinkID=254172</a>. For more
+        information on the ASP.NET providers for Windows Azure Caching, see <a href="http://go.microsoft.com/fwlink/?LinkId=255236"
+            target="_blank">http://go.microsoft.com/fwlink/?LinkId=255236</a>.
+        <br />
+        <br />
+        <p style="padding: 3px; margin: 8px; background-color: #BBE6FF">
+            Note: Samples are provided for educational purposes only. They are not intended
+            to be used in a production environment and have not been tested in a production
+            environment. Microsoft does not provide technical support for these samples.</p>
+    </p>
+    <h2>
+        Prerequisites</h2>
+    <p>This sample opens and runs in both Visual Studio 2010 SP1 and Visual Studio 2012.</p>
+    <p>
+        <span>To use this sample, you must install the <a href="http://go.microsoft.com/fwlink/?LinkID=255202">
+            latest Windows Azure SDK and Visual Studio Tools</a>.<br />
+            By default, the Caching assemblies are installed to the following path:
+            <br />
+            <br />
+            .\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref\Caching</span></p>
+        <p>This sample also uses a local SQL Server Express database with user instances. If you are running on 
+            Windows 7, Windows 8, Windows Server 2008 R2, or Windows Server 2012, you might experience exceptions
+            during the creation of the sample databse. You can work around these issues by changing your 
+            IIS application pool identity to NETWORK SERVICE and giving NETWORK SERVICE read/write access to 
+            the path containing the samples. For more information, see 
+            <a href="http://support.microsoft.com/kb/2002980">http://support.microsoft.com/kb/2002980</a>.
+        </p>
+    <h2>
+        Sample Flow</h2>
+    <p>
+        <span>This sample has the following characteristics:</span></p>
+    <ol>
+        <li>
+            <p>
+                <span>There is Profile link on the Default.aspx page, once you click it will display
+                    Profile.aspx page.</span></p>
+        </li>
+        <li>
+            <p>
+                <span>If you have already signed in, it will show the user details such as user name,
+                    e-mail address and logged in time<br />
+                    <br />
+                    If not signed in, it will direct you to login.apsx. Please note that if you have
+                    not signed up earlier, you can register yourself using registration link provided
+                    from the login.aspx page. </span>
+            </p>
+        </li>
+        <li>
+            <p>
+                The Profile.aspx page uses ASP.NET Page Output Caching. This is seen in the Page
+                Save Time information. The actual profile information is stored in ASP.NET Session
+                State Caching. Both of these are using Windows Azure Caching as the storage
+                mechanism. This means that any web role instance will have access to this stored
+                information.</p>
+        </li>
+    </ol>
+    <div id="sectionSection4" class="section">
+        <content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+        <h2 class="heading">
+            Running the Sample</h2>
+        <div id="sectionSection5" class="section">
+            <content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+        <p  xmlns="">
+        Use the following steps to understand and run the sample.
+        </p>
+            <ol>
+                <li>
+                    <p >
+                        <span>In the <b>CacheColocatedASPXWebRole</b> project, open the <b>web.config</b> file.</span></p>
+                </li>
+                <li>
+                    <p >
+                        <span>Note the following elements relevant to this sample:</span>
+                        <ul>
+                            <li>configSections</li>
+                            <li>dataCacheClients</li>
+                            <li>connectionStrings</li>
+                            <li>sessionState</li>
+                            <li>outputCache</li>
+                        </ul></p>
+                </li>
+                <li>
+                <p>In the same project, expand the <b>Account</b> folder in Solution Explorer, and then open <b>Profile.aspx</b>.
+                Use Source or Split views to investigate the HTML source of this page. Note the <b>OutputCache</b> settings at the 
+                top of the page.</p>
+                </li>
+                <li>
+                    <p >
+                        <span>In the <b>SessionAndOutputCacheCloudApp</b> project, double-click the 
+                        CacheColocatedASPXWebRole role.</span></p>
+                </li>
+                <li>
+                    <p >
+                        <span>Note the co-located settings on the <b>Caching</b> tab.</span></p>
+                </li>
+                <li>
+                    Build the solution in Visual Studio, and then press F5 to debug the solution in the browser. This should open the Default.aspx page.
+                </li>
+                <li>
+                    Click the <b>[Log In]</b> link at the top of page. Log in to your profile, or register a new profile.
+                </li>
+                <li>
+                    Go back and forth between the <b>Home</b> page and the <b>Profile</b> page.
+                </li>
+                <li>Note that it is possible to run this sample in a deployed cloud service on Windows Azure. However, there are
+                    several required steps:
+                    <ul>
+                        <li>You must change the <b>ApplicationServices</b> connection string in the web.config 
+                            to point to a Windows Azure SQL Database.</li>
+                        <li>On the <b>Caching</b> tab of the <b>CacheColocatedASPXWebRole</b>role properties, add a valid storage account credentials.
+                            In development, this string is set to "UseDevelopmentStorage=true". Note that you can make this change only to 
+                            the "Cloud" service configuration settings, so that your development runs continue to use the development storage.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            </content>
+        </div>
+        <p xmlns="">
+            <b>Expected Output</b></p>
+<p>Note that the page save time remains constant on the Profile page, because ASP.NET Page Output caching has been set to 
+30 seconds. After 30 seconds, the page is processed again, updating the save time. The actual profile data displayed is
+                    being stored and read from ASP.NET Session State. Both of these types of ASP.NET Caching use the
+                    co-located cache on the web role to store the information.</p>
+        <p style="padding: 3px; margin: 8px; background-color:#BBE6FF">Note: if you log out 
+            and then click on the Profile page, it is possible that you will see the cached 
+            page until the ASP.NET page output cache is refreshed. This cached page might 
+            incorrectly show that you are logged in. This is expected behavior for this 
+            sample.</p>
+        </content>
+    </div>
+</body>
+</html>

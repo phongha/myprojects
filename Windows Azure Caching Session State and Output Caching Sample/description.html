@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Windows Azure Caching Session State and Output Caching Sample</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Windows Azure Caching Session State and Output Caching Sample</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET, Windows Azure, .NET Framework, Windows Azure Caching
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ASP.NET, Caching, Performance
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">10/31/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Windows-Azure-Caching-78a49b70">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><strong><span>Windows Azure Caching:<br>
+</span>Session State and Output Caching Sample</strong></h1>
+<p><span style="color:#888888"><em>Updated for the October 2012 release of Windows Azure on 10/31/2012.</em></span></p>
+<p>This sample has two purposes:</p>
+<ul>
+<li>Demonstrate how to host Caching on an existing web role (co-located topology).
+</li><li>Demonstrate how to use Caching for both ASP.NET Session State and Output Caching.
+</li></ul>
+<p>This sample uses Caching co-located on a web role, <strong>CacheColocatedASPXWebRole</strong>. A percentage of memory on each instance of this web role form a cache cluster, providing Caching capabilities to the web role. In this sample, the cache is used
+ for ASP.NET Session State and Output caching.</p>
+<p>For more information about Caching, see <a href="http://go.microsoft.com/fwlink/?LinkID=254172" >
+http://go.microsoft.com/fwlink/?LinkID=254172</a>. For more information on the ASP.NET providers for Windows Azure Caching, see
+<a href="http://go.microsoft.com/fwlink/?LinkId=255236" >http://go.microsoft.com/fwlink/?LinkId=255236</a>.
+<br>
+<br>
+</p>
+<p style="padding:3px; margin:8px; background-color:#bbe6ff">Note: Samples are provided for educational purposes only. They are not intended to be used in a production environment and have not been tested in a production environment. Microsoft does not provide
+ technical support for these samples.</p>
+<p>&nbsp;</p>
+<h2>Prerequisites</h2>
+<p>This sample opens and runs in both Visual Studio 2010 SP1 and Visual Studio 2012.</p>
+<p><span>To use this sample, you must install the <a href="http://go.microsoft.com/fwlink/?LinkID=255202">
+latest Windows Azure SDK and Visual Studio Tools</a>.<br>
+By default, the Caching assemblies are installed to the following path: <br>
+<br>
+.\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref\Caching</span></p>
+<p>This sample also uses a local SQL Server Express database with user instances. If you are running on Windows 7, Windows 8, Windows Server 2008 R2, or Windows Server 2012, you might experience exceptions during the creation of the sample databse. You can
+ work around these issues by changing your IIS application pool identity to NETWORK SERVICE and giving NETWORK SERVICE read/write access to the path containing the samples. For more information, see
+<a href="http://support.microsoft.com/kb/2002980">http://support.microsoft.com/kb/2002980</a>.</p>
+<h2>Sample Flow</h2>
+<p><span>This sample has the following characteristics:</span></p>
+<ol>
+<li>
+<p><span>There is Profile link on the Default.aspx page, once you click it will display Profile.aspx page.</span></p>
+</li><li>
+<p><span>If you have already signed in, it will show the user details such as user name, e-mail address and logged in time<br>
+<br>
+If not signed in, it will direct you to login.apsx. Please note that if you have not signed up earlier, you can register yourself using registration link provided from the login.aspx page.
+</span></p>
+</li><li>
+<p>The Profile.aspx page uses ASP.NET Page Output Caching. This is seen in the Page Save Time information. The actual profile information is stored in ASP.NET Session State Caching. Both of these are using Windows Azure Caching as the storage mechanism. This
+ means that any web role instance will have access to this stored information.</p>
+</li></ol>
+<div class="section" id="sectionSection4">
+<h2 class="heading">Running the Sample</h2>
+<div class="section" id="sectionSection5">
+<p>Use the following steps to understand and run the sample.</p>
+<ol>
+<li>
+<p><span>In the <strong>CacheColocatedASPXWebRole</strong> project, open the <strong>
+web.config</strong> file.</span></p>
+</li><li>
+<p><span>Note the following elements relevant to this sample:</span></p>
+<ul>
+<li>configSections </li><li>dataCacheClients </li><li>connectionStrings </li><li>sessionState </li><li>outputCache </li></ul>
+<p>&nbsp;</p>
+</li><li>
+<p>In the same project, expand the <strong>Account</strong> folder in Solution Explorer, and then open
+<strong>Profile.aspx</strong>. Use Source or Split views to investigate the HTML source of this page. Note the
+<strong>OutputCache</strong> settings at the top of the page.</p>
+</li><li>
+<p><span>In the <strong>SessionAndOutputCacheCloudApp</strong> project, double-click the CacheColocatedASPXWebRole role.</span></p>
+</li><li>
+<p><span>Note the co-located settings on the <strong>Caching</strong> tab.</span></p>
+</li><li>Build the solution in Visual Studio, and then press F5 to debug the solution in the browser. This should open the Default.aspx page.
+</li><li>Click the <strong>[Log In]</strong> link at the top of page. Log in to your profile, or register a new profile.
+</li><li>Go back and forth between the <strong>Home</strong> page and the <strong>Profile</strong> page.
+</li><li>Note that it is possible to run this sample in a deployed cloud service on Windows Azure. However, there are several required steps:
+<ul>
+<li>You must change the <strong>ApplicationServices</strong> connection string in the web.config to point to a Windows Azure SQL Database.
+</li><li>On the <strong>Caching</strong> tab of the <strong>CacheColocatedASPXWebRole</strong>role properties, add a valid storage account credentials. In development, this string is set to &quot;UseDevelopmentStorage=true&quot;. Note that you can make this change only to
+ the &quot;Cloud&quot; service configuration settings, so that your development runs continue to use the development storage.
+</li></ul>
+</li></ol>
+</div>
+<p><strong>Expected Output</strong></p>
+<p>Note that the page save time remains constant on the Profile page, because ASP.NET Page Output caching has been set to 30 seconds. After 30 seconds, the page is processed again, updating the save time. The actual profile data displayed is being stored and
+ read from ASP.NET Session State. Both of these types of ASP.NET Caching use the co-located cache on the web role to store the information.</p>
+<p style="padding:3px; margin:8px; background-color:#bbe6ff">Note: if you log out and then click on the Profile page, it is possible that you will see the cached page until the ASP.NET page output cache is refreshed. This cached page might incorrectly show
+ that you are logged in. This is expected behavior for this sample.</p>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
